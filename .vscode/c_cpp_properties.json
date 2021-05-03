@@ -7,7 +7,7 @@
                 "/opt/homebrew/Cellar/glfw/3.3.4/include/",
                 "/opt/homebrew/var/vcpkg/installed/arm64-osx/include",
                 "/opt/homebrew/var/vcpkg/installed/x64-osx/include",
-                "/opt/homebrew/var/vcpkg/packages/glew_x64-osx/include"
+                "/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/include"
             ],
             "defines": [],
             "macFrameworkPath": [
