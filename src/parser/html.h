@@ -1,0 +1,1 @@
+void parser_html();

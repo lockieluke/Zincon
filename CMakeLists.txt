@@ -10,16 +10,16 @@ set(CMAKE_BINARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
 set(MAIN_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
 set(RENDERER_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/renderer/renderer.cpp)
+set(PARSER_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/html.cpp)
 
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
-include_directories("/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/include")
+include_directories("/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/include" "/usr/local/include")
 
-add_executable(${PROJECT_NAME} ${MAIN_SOURCES} ${RENDERER_SOURCES})
-
-SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE TRUE)
+add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${MAIN_SOURCES} ${RENDERER_SOURCES} ${PARSER_SOURCE})
 
 target_link_libraries(${PROJECT_NAME} glfw)
 target_link_libraries(${PROJECT_NAME} OpenGL::GL)
-target_link_libraries(${PROJECT_NAME} "/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/lib")
+target_link_libraries(${PROJECT_NAME} "/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/lib/libGLEW.a")
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/liblexbor.dylib")

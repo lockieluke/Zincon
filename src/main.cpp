@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include "renderer/renderer.h"
+#include "parser/html.h"
 
 int main()
 {
@@ -18,6 +19,7 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
     glfwWindowHint(GLFW_COCOA_RETINA_FRAMEBUFFER, GLFW_TRUE);
+    glfwWindowHint(GLFW_REFRESH_RATE, glfwGetVideoMode(glfwGetPrimaryMonitor())->refreshRate);
     GLFWwindow *window = glfwCreateWindow(1280, 720, "Zincon", nullptr, nullptr);
     if (!window)
     {
@@ -29,6 +31,8 @@ int main()
     glfwSetWindowSizeCallback(window, [](GLFWwindow *window, int width, int height){
         glViewport(0, 0, width, height);
     });
+
+    parser_html();
 
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
