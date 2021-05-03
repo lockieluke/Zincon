@@ -17,6 +17,8 @@ find_package(OpenGL REQUIRED)
 
 include_directories("/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/include" "/usr/local/include")
 
+set(MACOSX_BUNDLE_BUNDLE_NAME "Zincon")
+
 add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${MAIN_SOURCES} ${RENDERER_SOURCES} ${PARSER_SOURCE})
 
 target_link_libraries(${PROJECT_NAME} glfw)
