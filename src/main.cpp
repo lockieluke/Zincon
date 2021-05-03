@@ -17,6 +17,7 @@ int main()
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_COCOA_RETINA_FRAMEBUFFER, GLFW_TRUE);
     GLFWwindow *window = glfwCreateWindow(1280, 720, "Zincon", nullptr, nullptr);
     if (!window)
     {
