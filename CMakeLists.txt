@@ -15,8 +15,6 @@ set(PARSER_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/html.cpp)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
-include_directories("/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/include" "/usr/local/include")
-
 set(MACOSX_BUNDLE_BUNDLE_NAME "Zincon")
 
 add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${MAIN_SOURCES} ${RENDERER_SOURCES} ${PARSER_SOURCE})
@@ -25,3 +23,4 @@ target_link_libraries(${PROJECT_NAME} glfw)
 target_link_libraries(${PROJECT_NAME} OpenGL::GL)
 target_link_libraries(${PROJECT_NAME} "/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/lib/libGLEW.a")
 target_link_libraries(${PROJECT_NAME} "/usr/local/lib/liblexbor.dylib")
+target_include_directories(${PROJECT_NAME} PRIVATE "/opt/homebrew/var/vcpkg/packages/glew_arm64-osx/include" "/usr/local/include")
