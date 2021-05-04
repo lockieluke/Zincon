@@ -1,9 +1,23 @@
 #include <GL/glew.h>
 #include <iostream>
+#include <windows.h>
 #include <GLFW/glfw3.h>
 
 #include "renderer/renderer.h"
 #include "parser/html.h"
+
+int main();
+
+int CALLBACK WinMain(
+  __in  HINSTANCE hInstance,
+  __in  HINSTANCE hPrevInstance,
+  __in  LPSTR lpCmdLine,
+  __in  int nCmdShow
+) {
+    main();
+}
+
+static int framerate = 30;
 
 int main()
 {
@@ -39,6 +53,7 @@ int main()
         glfwSwapBuffers(window);
         glfwPollEvents();
         render();
+        Sleep(1000/framerate);
     }
 
     glfwDestroyWindow(window);
